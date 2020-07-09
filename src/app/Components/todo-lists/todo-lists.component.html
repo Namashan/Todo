@@ -1,0 +1,35 @@
+<div class="container">
+  <!-- Table -->
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Leírás</th>
+      <th scope="col">Prioritás</th>
+      <th scope="col">Státusz</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of todoArr">
+      <td>{{ t.description }}</td>
+      <td>{{ t.priority }}</td>
+      <td>{{ t.done }}</td>
+      <td>
+        <button type="button" class="btn btn-danger btn-sm delete-button" (click)="markAsDone(t)">Kész</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <form [formGroup]="form" (submit)="submitf()">
+    <div class="form-group">
+      <label for="description1">Leírás</label>
+      <input type="text" class="form-control" id="description1">
+    </div>
+    <div class="form-group">
+      <label for="priority1">Prioritás</label>
+      <input type="number" class="form-control" id="priority1">
+    </div>
+    <button type="submit" class="btn btn-primary">Hozzáadás</button>
+  </form>
+</div>
+
